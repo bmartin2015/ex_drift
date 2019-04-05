@@ -2,17 +2,18 @@ defmodule ExDrift do
   @moduledoc """
   Documentation for ExDrift.
   """
+  @behaviour ExDrift.Backend
 
-  @doc """
-  Hello world.
+  @type conversation_id :: integer()
+  @type config_opt :: any()
 
-  ## Examples
+  @impl true
+  @spec get_conversation(conversation_id, [config_opt]) :: {:ok, any()} | {:error, any()}
+  def get_conversation(conversation_id, opts \\ []) do
+    backend().get_conversation(conversation_id, opts)
+  end
 
-      iex> ExDrift.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defp backend() do
+    ExDrift.DefaultBackend
   end
 end
