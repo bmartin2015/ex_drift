@@ -25,12 +25,13 @@ defmodule ExDrift.MixProject do
       {:hackney, "~> 1.15.1"},
       {:jason, "~> 1.1"},
 
-      # DEV
+      # Docs and Code Clean
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.5", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
 
-      # DOC
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
+      # Test
+      {:stream_data, "~> 0.1", only: :test}
     ]
   end
 end
